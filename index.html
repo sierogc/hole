@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rotating Circular Text</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .circle-text {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    animation: rotate 30s linear infinite;
+  }
+
+  .circle-text span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 150px; /* 150px = radius */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="circle-text" id="circleText"></div>
+
+<script>
+  const text = "THERE'S A HOLE IN MY HEART THAT CAN ONLY BE FILLED BY YOU, AND THIS HOLE IN MY HEART CAN'T BE FILLED BY THE THINGS I DO.";
+  const container = document.getElementById('circleText');
+  const radius = 150; // radius of the circle in px
+  const characters = text.length;
+  const degStep = 360 / characters;
+
+  for(let i = 0; i < characters; i++) {
+    const span = document.createElement('span');
+    span.innerText = text[i];
+    // rotate each character around the circle
+    span.style.transform = `rotate(${degStep * i}deg) translate(${radius}px) rotate(${degStep * -i}deg)`;
+    container.appendChild(span);
+  }
+</script>
+
+</body>
+</html>
