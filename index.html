@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>hole</title>
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hole</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-  svg {
-    width: 80vmin;
-    height: 80vmin;
-    animation: rotate 60s linear infinite;
-  }
+    svg {
+      width: 90vmin;
+      height: 90vmin;
+      max-width: 100vw;
+      max-height: 100vh;
+      animation: rotate 60s linear infinite;
+    }
 
-  text {
-    fill: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.7vmin;
-  }
+    text {
+      fill: white;
+      font-family: Arial, sans-serif;
+      font-size: 2.2vmin;
+    }
 
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-</style>
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
 
-<svg viewBox="0 0 300 300" aria-label="Rotating circular text" role="img" >
+<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" aria-label="Rotating circular text" role="img">
   <defs>
     <path id="circlePath" d="
       M 150, 150
